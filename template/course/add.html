@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add course</title>
+</head>
+<body>
+    <label>
+        课程名：<input type="text" name="fname" id="id-course-name"/>
+    </label>
+    <button type="button" id="submit-btn">提交</button>
+
+
+</body>
+<script>
+
+const onclick = function () {
+    let courseName = document.getElementById("id-course-name").value
+    window.location.href = `/course/add?name=${courseName}`
+}
+
+document.querySelector('#submit-btn').addEventListener('click', function () {
+    onclick()
+})
+
+</script>
+</html>

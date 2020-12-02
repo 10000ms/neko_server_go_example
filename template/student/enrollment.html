@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enrollment</title>
+</head>
+<body>
+<label>
+    学生姓名：<input type="text" name="fname" id="id-name"/>
+</label>
+<br/>
+<label>
+    学生年龄：<input type="text" name="fname" id="id-age"/>
+</label>
+<br/>
+<label>
+    学生email：<input type="email" name="fname" id="id-email"/>
+</label>
+<br/>
+选择课程：
+<br/>
+{{ for c in courses }}
+<input type="checkbox" id="checkbox-{{ c.Name }}" class="class-checkbox" value="{{ c.ID }}">
+<label for="checkbox-{{ c.Name }}">{{ c.Name }}</label><br>
+{{ end }}
+<button type="button" id="submit-btn">提交</button>
+</body>
+
+<script>
+
+const onclick = function () {
+    let cid = []
+    document.querySelectorAll('.class-checkbox').forEach((item) => {
+        if (item.checked === true) {
+            cid.push(item.value)
+        }
+    })
+    let cids = ""
+    for (let i = 0; i < cid.length; i++) {
+        cids += `&course_id=${cid[i]}`
+    }
+    let name = document.getElementById("id-name").value
+    let age = document.getElementById("id-age").value
+    let email = document.getElementById("id-age").value
+    window.location.href = `/enrollment/add?name=${name}&age=${age}&email=${email}${cids}`
+}
+
+document.querySelector('#submit-btn').addEventListener('click', function () {
+    onclick()
+})
+</script>
+</html>
