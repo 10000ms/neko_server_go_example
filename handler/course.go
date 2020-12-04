@@ -13,6 +13,7 @@ func CourseAddTemplate(c *neko_server_go.Context, w neko_server_go.ResWriter) {
 		Path: c.App.Setting["Path"].(string),
 	}
 	t := l.GetSource("/template/course/add.html")
+	utils.LogInfo("in CourseAddTemplate")
 	_, err := fmt.Fprintf(w, t) //这个写入到w的是输出到客户端的
 	if err != nil {
 		utils.LogError(err)

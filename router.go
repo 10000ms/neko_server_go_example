@@ -6,10 +6,10 @@ import (
 )
 
 var Router = neko_server_go.Router{
-	"^/enrollment/view":      handler.EnrollmentView,
-	"^/enrollment/add":       handler.EnrollmentAdd,
-	"^/enrollment/statistic": handler.EnrollmentStatistic,
-	"^/course/add":           handler.CourseAdd,
-	"^/course":               handler.CourseAddTemplate,
-	"^/$":                    handler.Index,
+	"/enrollment/view":      handler.EnrollmentView,
+	"/enrollment/add":       handler.EnrollmentAdd,
+	"/enrollment/statistic": handler.EnrollmentStatistic,
+	"/course/add":           handler.CourseAdd,
+	"/course":               handler.CourseAddTemplate,
+	"/":                     handler.Index,
 }
